@@ -1,0 +1,13 @@
+jupyter
+nb_black
+Pygments
+numpy
+pandas
+scikit-learn
+statsmodels
+lightgbm
+matplotlib
+altair
+azure-storage-blob
+fastparquet
+pyarrow

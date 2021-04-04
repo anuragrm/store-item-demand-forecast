@@ -1,0 +1,21 @@
+name: store-item-demand-forecast
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - pip
+  - pip:
+    - jupyter
+    - papermill
+    - nb_black
+    - Pygments
+    - numpy
+    - pandas
+    - scikit-learn
+    - statsmodels
+    - lightgbm
+    - matplotlib
+    - altair
+    - azure-storage-blob
+    - fastparquet
+    - pyarrow
