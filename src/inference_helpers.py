@@ -59,7 +59,14 @@ def predict_future(
 ):
     show_future_prediction_data_dates(data_train, gap)
 
-    _, y_pred_test, trained_model = create_features_train_predict(
+    (
+        _,
+        y_pred_test,
+        trained_model,
+        train_end_date,
+        test_start_date_manual,
+        test_end_date_manual,
+    ) = create_features_train_predict(
         data_train,
         lags,
         window_size,
@@ -76,4 +83,10 @@ def predict_future(
     )
     df_future_pred = get_future_prediction_data_grid(data_train, gap, horizon)
     df_future_pred["pred"] = np.expm1(y_pred_test)
-    return [df_future_pred, trained_model]
+    return [
+        df_future_pred,
+        trained_model,
+        train_end_date,
+        test_start_date_manual,
+        test_end_date_manual,
+    ]

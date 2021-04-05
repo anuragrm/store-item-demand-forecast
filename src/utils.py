@@ -114,9 +114,28 @@ def create_features_train_predict(
         horizon,
         data_test,
     )
-    train_fea, test_fea, _, _, _ = mlh.train_test_gap_split(
-        train_end_date, gap, features
-    )
+    (
+        train_fea,
+        test_fea,
+        test_start_date_manual,
+        _,
+        test_end_date_manual,
+    ) = mlh.train_test_gap_split(train_end_date, gap, features)
+    if not data_test.empty:
+        test_start_date_manual_check_value = data_test.index.get_level_values(
+            1
+        ).min()
+        test_end_date_manual_check_value = data_test.index.get_level_values(
+            1
+        ).max()
+        assert (
+            test_start_date_manual
+            == test_start_date_manual_check_value.strftime("%Y-%m-%d")
+        )
+        assert (
+            test_end_date_manual
+            == test_end_date_manual_check_value.strftime("%Y-%m-%d")
+        )
 
     X_train, y_train, X_test = mlh.get_xy(train_fea, test_fea, "sales")
     y_train = mlh.transform_target(y_train)
@@ -136,7 +155,14 @@ def create_features_train_predict(
         model_fit_params,
         scoring_func,
     )
-    return [X_test, y_pred_test, model]
+    return [
+        X_test,
+        y_pred_test,
+        model,
+        train_end_date,
+        test_start_date_manual,
+        test_end_date_manual,
+    ]
 
 
 def score_model(
@@ -161,7 +187,14 @@ def score_model(
 
         print("---------- Round " + str(r + 1) + " ----------")
 
-        X_test, y_pred_test, _ = create_features_train_predict(
+        (
+            X_test,
+            y_pred_test,
+            _,
+            train_cv_fold_end_date,
+            test_cv_fold_start_date,
+            test_cv_fold_end_date,
+        ) = create_features_train_predict(
             train_df,
             lags,
             window_size,
@@ -181,9 +214,13 @@ def score_model(
         )
         print("SMAPE of the predictions is {}".format(smape_score_test))
         summary_dict = {
-            "smape": smape_score_test,
-            "model_params": model_params,
             "fold": r + 1,
+            "model_params": model_params,
+            "model_params_str": str(model_params),
+            "train_end_date": train_cv_fold_end_date,
+            "test_start_date": test_cv_fold_start_date,
+            "test_end_date": test_cv_fold_end_date,
+            "smape": smape_score_test,
         }
         if num_splits == 1:
             test_index = test_df.index

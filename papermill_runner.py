@@ -17,11 +17,16 @@ raw_data_path = os.path.join(data_dir, "raw")
 one_dict_nb_name = "1_lgbm_trials_v2.ipynb"
 
 one_dict = dict(
-    az_storage_container_name="myconedesx7",
-    blob_dict_inputs={
-        "blobedesz36": "train",
-        "blobedesz37": "test",
-    },
+    plot_xvar="date",
+    plot_yvar="sales",
+    roll_window=365,
+    hist_bin_step_size=5,
+    n_lags=50,
+    alpha=0.05,
+    ci_band_opacity=0.5,
+    fig_size=[370, 275],
+    corr_plots_wanted=["acf", "pacf"],
+    heatmap_agg="median",
     N_SPLITS=5,
     HORIZON=90,
     GAP=90,
