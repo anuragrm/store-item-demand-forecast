@@ -1,5 +1,15 @@
 # [Store-Item Demand Forecasting](#store-item-demand-forecasting)
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/edesz/store-item-demand-forecast)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/edesz/store-item-demand-forecast/master/1_lgbm_trials_v2.ipynb)
+![CI](https://github.com/edesz/store-item-demand-forecast/workflows/CI/badge.svg)
+![CodeQL](https://github.com/edesz/store-item-demand-forecast/workflows/CodeQL/badge.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/mit)
+![OpenSource](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/ambv/black)
+![prs-welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
+![pyup](https://pyup.io/repos/github/edesz/store-item-demand-forecast/shield.svg)
+
 ## [About](#about)
 
 Forecasting 3 months of sales for each of 50 items across 10 stores within a chain.
