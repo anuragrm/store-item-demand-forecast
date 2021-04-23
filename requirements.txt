@@ -7,6 +7,6 @@ statsmodels==0.12.2
 lightgbm==3.2.1
 matplotlib==3.4.1
 altair==4.1.0
-azure-storage-blob==12.8.0
+azure-storage-blob==12.8.1
 fastparquet==0.5.0
 pyarrow==3.0.0
