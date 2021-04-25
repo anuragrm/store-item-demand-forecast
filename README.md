@@ -12,7 +12,7 @@
 
 ## [About](#about)
 
-Forecasting 3 months of sales for each of 50 items across 10 stores within a chain with a tree-based method (LightGBM).
+Forecasting 3 months of sales for each of 50 items across 10 stores within a chain with a [tree-based](https://en.wikipedia.org/wiki/Decision_tree_learning) [Machine Learning (ML)](https://en.wikipedia.org/wiki/Machine_learning) method ([LightGBM](https://en.wikipedia.org/wiki/LightGBM)).
 
 ## [Limitations](#limitations)
 1. A major limitation of the analysis performed here is that neither trend nor seasonality have been removed from the timeseries for each store-item combination from the data ([1](http://freerangestats.info/blog/2016/12/10/extrapolation), [1](https://srome.github.io/Dealing-With-Trends-Combine-a-Random-Walk-with-a-Tree-Based-Model-to-Predict-Time-Series-Data/)). Tree-based method cannot extrapolate and so can't handle trend. The timeseries should have been transformed to remove underlying signal before attempting to use ML-based techniques for forecasting. While Deep Learning doesn't have this limitation (and was not used here), neural networks perform better at forecasting if the underlying structure has been removed from the time-series. Again, structure should be removed before trying to use it for forecasting.
