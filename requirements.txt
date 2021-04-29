@@ -2,7 +2,7 @@ jupyter==1.0.0
 nb_black==1.0.7
 numpy==1.20.2
 pandas==1.2.4
-scikit-learn==0.24.1
+scikit-learn==0.24.2
 statsmodels==0.12.2
 lightgbm==3.2.1
 matplotlib==3.4.1
