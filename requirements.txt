@@ -9,4 +9,4 @@ matplotlib==3.4.2
 altair==4.1.0
 azure-storage-blob==12.8.1
 fastparquet==0.7.0
-pyarrow==4.0.1
+pyarrow==5.0.0
